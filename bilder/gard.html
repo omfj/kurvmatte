@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gard</title>
+</head>
+<body>
+    <h1 id="title">Tykk meg for å se noe kult!!!!</h1>
+    <button id="button" onclick="gay()">Her!</button>
+    <p id="text"></p>
+    <script>
+        const button = document.getElementById("button");
+        const text = document.getElementById("text");
+        const title = document.getElementById("title");
+
+        function gay() {
+            text.innerHTML = "Gard er gay!";
+            text.style.fontSize = "4em";
+            button.remove();
+            title.remove();
+        }
+    </script>
+</body>
+</html>
