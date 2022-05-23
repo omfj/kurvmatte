@@ -20,7 +20,9 @@ const aniBallMove = [
     {top: "15%"}, // Start posisjon
     {top: "80%"}, // Slutt posisjon
 ];
+
 let tid = 5000;
+
 const aniBallTiming = {
     duration: tid,
     iterations: 1,
@@ -32,6 +34,7 @@ const position = [
     {place: 50, value: 10, box: "parAnswer1"},
     {place: 90, value: 10, box: "parAnswer2"},
 ];
+
 let index = 1;
 let health = 3;
 let points = 0;
@@ -67,27 +70,42 @@ function place(id, x_pos) {
     element.style.position = "absolute";
     element.style.left = x_pos + "%";
 }
-function update(){
+
+function update() {
     document.addEventListener('keydown', keyPress);
 }
+
 function keyPress(e) {
     const x = e.key;
 
-    if(x == "ArrowRight" || x == "d") {
+    if (x == "ArrowRight" || x == "d") {
         index++;
+
         if(index > 2) {
             index = 2;
         }
+
         place("divBall", position[index].place);
-    } else if(x == "ArrowLeft" || x == "a") {
+    } else if (x == "ArrowLeft" || x == "a") {
         index--;
+
         if(index < 1) {
             index = 0;
         }
+
         place('divBall', position[index].place);
     }
 }
 update();
+
+
+function randomNumber() {
+    return Math.floor(Math.random() * 40) + 10;
+}
+
+function randomAnswer() {
+    return randomNumber() + randomNumber();
+}
 
 function newCalculation() {
     const aniBall = divBall.animate(aniBallMove, aniBallTiming);
@@ -95,31 +113,35 @@ function newCalculation() {
     const boxNumber = Math.floor(Math.random() * 3);
     const correctBox = String(position[boxNumber].box);
 
-    const number1 = Math.floor(Math.random() * 40) + 10;
-    const number2 = Math.floor(Math.random() * 40) + 10;
+    const number1 = randomNumber();
+    const number2 = randomNumber();
+    const answer =  number1 + number2;
 
-    const answer = number1 + number2;
+    let extra1 = randomAnswer();
+    let extra2 = randomAnswer();
 
-    const extra1 = answer - (Math.floor(Math.random() * 10) + 1);
-    const extra2 = answer + (Math.floor(Math.random() * 10) + 1)
+    while (extra1 === answer || extra2 === answer) {
+        extra1 = randomAnswer();
+        extra2 = randomAnswer();
+    }
 
     eval(correctBox).innerHTML = answer;
 
     position[boxNumber].value = answer;
 
-    if(correctBox == "parAnswer0") {
+    if (correctBox == "parAnswer0") {
         parAnswer1.innerHTML = extra1;
         position[1].value = extra1;
 
         parAnswer2.innerHTML = extra2;
         position[2].innerHTML = extra2;
-    } else if(correctBox == "parAnswer1") {
+    } else if (correctBox == "parAnswer1") {
         parAnswer0.innerHTML = extra1;
         position[0].value = extra1;
 
         parAnswer2.innerHTML = extra2;
         position[2].innerHTML = extra2;
-    } else if(correctBox == "parAnswer2") {
+    } else if (correctBox == "parAnswer2") {
         parAnswer0.innerHTML = extra1;
         position[0].value = extra1;
 
@@ -144,14 +166,16 @@ function newCalculation() {
 
             parPoints.innerHTML = "Poeng: " + points;
 
-        } else if(lastPos != correctBox) {
+        } else if (lastPos != correctBox) {
             health--;
-            if(health < 1) {
+
+            if (health < 1) {
                 divBall.style.visibility = "hidden";
                 parQuestion.style.visibility = "hidden";
                 parHealthBar.style.visibility = "hidden";
                 parPoints.style.visibility = "hidden";
                 parLevel.style.visibility = "hidden";
+
                 for(var i = 0; i < divPlatform.length; i++) {
                     divPlatform[i].style.visibility = "hidden";
                 }

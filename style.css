@@ -1,76 +1,77 @@
 @font-face {
-    font-family: minecraftFont;
-    src: url("minecraft.ttf");
+  font-family: minecraftFont;
+  src: url("minecraft.ttf");
 }
 
 * {
-    margin: 0;
+  margin: 0;
 }
 
-html, body {
-    font-family: minecraftFont;
-    background: url("bilder/background.jpeg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    min-height: 100vh;
-    overflow: hidden;
+html,
+body {
+  font-family: minecraftFont;
+  background: url("bilder/background.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+  overflow: hidden;
 }
-.backToProjects {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-    background-color: white;
-    text-align: center;
-    padding: 14px;
-    color: blue;
-    text-decoration: none;
+.back-to-projects {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding: 14px;
+  color: blue;
+  text-decoration: none;
 }
 .title {
-    font-size: 6em;
-    text-align: center;
+  font-size: 6em;
+  text-align: center;
 }
-.mainMenu {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
+.main-menu {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .menu {
-    font-size: 2.5em;
-    text-align: center;
-    width: 400px;
-    margin: auto;
+  font-size: 2.5em;
+  text-align: center;
+  width: 400px;
+  margin: auto;
 }
 .menu p {
-    background: url("bilder/cloud.png") no-repeat;
-    background-size: 100% 100%;
-    padding: 1em;
-    transition: all .2s ease-in-out;
-    margin: 25px;
+  background: url("bilder/cloud.png") no-repeat;
+  background-size: 100% 100%;
+  padding: 1em;
+  transition: all 0.2s ease-in-out;
+  margin: 25px;
 }
 .menu a {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 .menu p:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    transition: 0.4s;
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.4s;
 }
 .operation {
-    text-align: center;
-    font-size: 3.5em;
+  text-align: center;
+  font-size: 3.5em;
 }
 .menu .chooseOperation {
-    font-size: .75em;
+  font-size: 0.75em;
 }
-.parBack {
-    position: absolute;
-    font-size: 1.5em;
-    color: black;
-    text-decoration: underline;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 10px;
+.back-button {
+  position: absolute;
+  font-size: 1.5em;
+  color: black;
+  text-decoration: underline;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 10px;
 }
